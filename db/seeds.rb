@@ -27,13 +27,11 @@ end
 
 
 if Rails.env.development?
-  # Uncomment after users have been Devised
-
-  # user = User.create(username: "devin", email_address: "devin@example.com", password: "password")
-  # ech = user.spreads.create(name: "Energy/Challenge/Advice")
-  # ech.slots.create([
-  #   {name: "Energy"},
-  #   {name: "Challenge"},
-  #   {name: "Advice"}
-  # ])
+  user = User.create(username: "devin", email_address: "devin@example.com", password: "password")
+  ech = user.spreads.create(name: "Energy/Challenge/Advice")
+  ech.slots.create([
+    {name: "Energy"},
+    {name: "Challenge"},
+    {name: "Advice"}
+  ])
 end
