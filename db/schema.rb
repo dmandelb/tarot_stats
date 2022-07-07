@@ -34,13 +34,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_07_164341) do
     t.index ["suit_id"], name: "index_decks_suits_on_suit_id"
   end
 
-  create_table "drawers", force: :cascade do |t|
+  create_table "decks_users", force: :cascade do |t|
     t.integer "deck_id", null: false
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["deck_id"], name: "index_drawers_on_deck_id"
-    t.index ["user_id"], name: "index_drawers_on_user_id"
+    t.index ["deck_id"], name: "index_decks_users_on_deck_id"
+    t.index ["user_id"], name: "index_decks_users_on_user_id"
   end
 
   create_table "readings", force: :cascade do |t|
@@ -86,8 +86,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_07_164341) do
   add_foreign_key "cards", "suits"
   add_foreign_key "decks_suits", "decks"
   add_foreign_key "decks_suits", "suits"
-  add_foreign_key "drawers", "decks"
-  add_foreign_key "drawers", "users"
+  add_foreign_key "decks_users", "decks"
+  add_foreign_key "decks_users", "users"
   add_foreign_key "readings", "spreads"
   add_foreign_key "readings", "users"
   add_foreign_key "slots", "cards"
