@@ -1,3 +1,9 @@
 <% if @spreads.empty? %>
   You have no existing spreads.
+<% else %>
+  <ul>
+    <% @spreads.each do |spread| %>
+      <%= link_to spread.name, spread %>
+    <% end %>
+  </ul>
 <% end %>
