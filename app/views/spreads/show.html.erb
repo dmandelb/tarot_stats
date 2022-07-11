@@ -2,6 +2,6 @@
 
 <ol>
   <% @spread.slots.each do |slot| %>
-    <li><%= slot.name %> <%= link_to 'delete', spread_slot_path(@spread, slot), data: {turbo_method: :delete} %></li>
+    <li><%= slot.name %> <%= link_to 'delete', spread_slot_path(@spread, slot), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete the '#{slot.name}' slot?"} %></li>
   <% end %>
 </ol>
