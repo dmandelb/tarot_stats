@@ -1,0 +1,7 @@
+<h2><%= @spread.name %></h2>
+
+<ol>
+  <% @spread.slots.each do |slot| %>
+    <li><%= slot.name %></li>
+  <% end %>
+</ol>
