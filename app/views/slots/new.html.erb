@@ -12,3 +12,5 @@
     <%= f.submit "Save and finish", name: 'save_and_finish', class: 'btn btn-secondary btn-small' %>
   </div>
 <% end -%>
+<%= link_to "Cancel", @spread, class: 'btn btn-danger btn-small', id: 'cancel' %> 
+<label for="cancel">This will not affect previously added slots.</label>

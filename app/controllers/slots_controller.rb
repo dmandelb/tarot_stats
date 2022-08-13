@@ -28,8 +28,8 @@ class SlotsController < ApplicationController
   end
 
   def destroy
-    @slot.destroy
-    redirect_to @spread
+    @slot.delete
+    redirect_to root_path
   end
 
   private
