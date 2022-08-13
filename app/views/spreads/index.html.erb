@@ -5,7 +5,10 @@
 <% else %>
   <ul class="list-group">
     <% @spreads.each do |spread| %>
-      <li class="list-group-item"><%= link_to spread.name, spread %></li>
+      <li class="list-group-item">
+        <%= link_to spread.name, spread %> <%= link_to "Edit", edit_spread_path(spread), class: 'btn btn-secondary btn-small' %>
+          <%= link_to "Delete", spread_path(spread), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete the '#{spread.name}' spread?"}, class: 'btn btn-danger btn-small' %>
+        </li>
     <% end %>
   </ul>
 <% end %>

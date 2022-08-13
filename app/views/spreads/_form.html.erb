@@ -1,0 +1,13 @@
+<%= form_with model: @spread do |f| %>
+  <div>
+    <%= f.label :name, "Spread name" %>
+    <%= f.text_field :name %>
+  </div>
+  <div>
+    <% if @spread.id %>
+      <%= f.submit "Save", class: "btn btn-primary btn-small" %>
+    <% else %>
+      <%= f.submit "Continue", class: "btn btn-primary btn-small" %>
+    <% end %>
+  </div>
+<% end -%>
