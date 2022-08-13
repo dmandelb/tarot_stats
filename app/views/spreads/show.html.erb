@@ -1,7 +1,7 @@
 <h2><%= @spread.name %></h2>
 
-<ol>
+<ol class="list-group">
   <% @spread.slots.each do |slot| %>
-    <li><%= slot.name %> <%= link_to 'delete', spread_slot_path(@spread, slot), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete the '#{slot.name}' slot?"} %></li>
+    <li class="list-group-item"><%= slot.name %> <%= link_to 'Delete', spread_slot_path(@spread, slot), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete the '#{slot.name}' slot?"}, class: 'btn btn-danger btn-small' %></li>
   <% end %>
 </ol>

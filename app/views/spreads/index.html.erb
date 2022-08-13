@@ -1,9 +1,9 @@
 <% if @spreads.empty? %>
   You have no existing spreads.
 <% else %>
-  <ul>
+  <ul class="list-group">
     <% @spreads.each do |spread| %>
-      <%= link_to spread.name, spread %>
+      <li class="list-group-item"><%= link_to spread.name, spread %></li>
     <% end %>
   </ul>
 <% end %>
