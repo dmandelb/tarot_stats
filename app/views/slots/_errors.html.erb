@@ -1,0 +1,5 @@
+<% if @slot.errors.count > 0 %>
+  <div id="flash" class="alert">
+    <%= @slot.errors.full_messages.collect {|msg| msg}.join("<br>").html_safe %>
+  </div>
+<% end %>

@@ -1,5 +1,6 @@
 class SlotsController < ApplicationController
-  before_action :set_spread, only: [:new, :create]
+  before_action :set_spread, only: [:new, :create, :edit, :update]
+  before_action :set_slot, only: [:edit, :update, :destroy]
 
   def new
     @slot = Slot.new
@@ -18,13 +19,25 @@ class SlotsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    @slot.update(name: params[:name])
+    redirect_to @spread
+  end
+
   def destroy
-    Slot.find(params[:id]).destroy
+    @slot.destroy
     redirect_to @spread
   end
 
   private
   def set_spread
     @spread = Spread.find(params[:spread_id])
+  end
+
+  def set_slot
+    @slot = Slot.find(params[:id])
   end
 end

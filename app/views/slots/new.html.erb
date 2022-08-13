@@ -1,11 +1,6 @@
 <h2>Add Slot to <%= @spread.name %></h2>
 
-<% if @slot.errors.count > 0 %>
-  <div id="flash" class="alert">
-    <%= @slot.errors.full_messages.collect {|msg| msg}.join("<br>").html_safe %>
-  </div>
-<% end %>
-
+<%= render 'errors' %>
 
 <%= form_with url: "/spreads/#{@spread.id}/slots" do |f| %>
   <div>
