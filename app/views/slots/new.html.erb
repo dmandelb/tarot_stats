@@ -1,0 +1,19 @@
+<h2>Add Slot to <%= @spread.name %></h2>
+
+<% if @slot.errors.count > 0 %>
+  <div id="flash" class="alert">
+    <%= @slot.errors.full_messages.collect {|msg| msg}.join("<br>").html_safe %>
+  </div>
+<% end %>
+
+
+<%= form_with url: "/spreads/#{@spread.id}/slots" do |f| %>
+  <div>
+    <%= f.label :name %> 
+    <%= f.text_field :name %>
+  </div>
+  <div>
+    <%= f.submit "Save and continue to next slot", class: 'btn btn-primary btn-small'%>
+    <%= f.submit "Save and finish", name: 'save_and_finish', class: 'btn btn-secondary btn-small' %>
+  </div>
+<% end -%>

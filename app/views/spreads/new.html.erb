@@ -1,0 +1,9 @@
+<%= form_with model: @spread do |f| %>
+  <div>
+    <%= f.label :name, "Spread name" %>
+    <%= f.text_field :name %>
+  </div>
+  <div>
+    <%= f.submit "Continue", class: "btn btn-primary btn-small" %>
+  </div>
+<% end -%>
