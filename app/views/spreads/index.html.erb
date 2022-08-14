@@ -1,14 +1,22 @@
-<%= link_to 'Create New Spread', new_spread_path, class: 'btn btn-primary btn-small' %>
+<div class="container">
+  <%= link_to 'Create New Spread', new_spread_path, class: 'btn btn-primary btn-small' %>
 
-<% if @spreads.empty? %>
-  You have no existing spreads.
-<% else %>
-  <ul class="list-group">
-    <% @spreads.each do |spread| %>
-      <li class="list-group-item">
-        <%= link_to spread.name, spread %> <%= link_to "Edit", edit_spread_path(spread), class: 'btn btn-secondary btn-small' %>
-          <%= link_to "Delete", spread_path(spread), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete the '#{spread.name}' spread?"}, class: 'btn btn-danger btn-small' %>
+  <% if @spreads.empty? %>
+    You have no existing spreads.
+  <% else %>
+    <ul>
+      <% @spreads.each do |spread| %>
+        <li class="row">
+          <div class="col-6">
+            <%= link_to spread.name, spread %> 
+          </div>
+          <div class="col">
+            <%= link_to "Create Reading", root_path, class: 'btn btn-primary btn-small' %>
+            <%= link_to "Edit", edit_spread_path(spread), class: 'btn btn-secondary btn-small' %>
+            <%= link_to "Delete", spread_path(spread), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete the '#{spread.name}' spread?"}, class: 'btn btn-danger btn-small' %>
+          </div>
         </li>
-    <% end %>
-  </ul>
-<% end %>
+      <% end %>
+    </ul>
+  <% end %>
+</div>
