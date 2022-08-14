@@ -4,9 +4,10 @@
   <% @spread.slots.each do |slot| %>
     <li class="list-group-item">
       <%= slot.name %>
-      <%= link_to 'Edit', edit_spread_slot_path(@spread, slot), class: 'btn btn-secondary btn-small' %>
-      <%= link_to 'Delete', spread_slot_path(@spread, slot), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete the '#{slot.name}' slot?"}, class: 'btn btn-danger btn-small' %>
+      <%= link_to 'Edit', edit_spread_slot_path(@spread, slot), class: 'btn btn-secondary btn-sm' %>
+      <%= link_to 'Delete', spread_slot_path(@spread, slot), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete the '#{slot.name}' slot?"}, class: 'btn btn-danger btn-sm' %>
       </li>
   <% end %>
 </ol>
-<%= link_to 'Add slot to Spread', new_spread_slot_path(@spread), class: 'btn btn-secondary btn-small' %>
+<%= link_to 'Add slot to Spread', new_spread_slot_path(@spread), class: 'btn btn-secondary btn-sm' %>
+<%= link_to 'Enter Reading', new_spread_reading_path(@spread), class: 'btn btn-primary btn-lg' %>
