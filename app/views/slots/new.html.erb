@@ -1,0 +1,16 @@
+<h2>Add Slot to <%= @spread.name %></h2>
+
+<%= render 'errors' %>
+
+<%= form_with url: "/spreads/#{@spread.id}/slots" do |f| %>
+  <div class="form-group">
+    <%= f.label :name %> 
+    <%= f.text_field :name, placeholder: 'Name', class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.submit "Save and continue to next slot", class: 'btn btn-primary btn-small'%>
+    <%= f.submit "Save and finish", name: 'save_and_finish', class: 'btn btn-secondary btn-small' %>
+  </div>
+<% end -%>
+<%= link_to "Cancel", @spread, class: 'btn btn-danger btn-small', id: 'cancel' %> 
+<label for="cancel">This will not affect previously added slots.</label>

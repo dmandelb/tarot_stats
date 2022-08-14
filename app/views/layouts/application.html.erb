@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>TarotStats</title>
+    <title>Tarot Stats</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -10,7 +10,25 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+  <body class="container">
+    <header>
+      <div class="row">
+        <span class="col-10">
+          <%= link_to(root_path, class: 'text-decoration-none text-reset') do %>
+            <h1 class="col">Tarot Stats</h1>
+          <% end -%>
+        </span>
+        <span class="col">
+          <% if user_signed_in? %>
+            <%= link_to "Sign Out", destroy_user_session_path, data: {turbo_method: :delete} %>
+            <% else %>
+            <%= link_to "Sign In", new_user_session_path %> | <%= link_to "Sign Up", new_user_registration_path %>
+          <% end %>
+        </span>
+      </div>
+    </header>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
     <%= yield %>
   </body>
 </html>

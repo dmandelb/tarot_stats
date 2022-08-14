@@ -1,0 +1,13 @@
+<h2>Edit "<%= @slot.name %>" Slot</h2>
+
+<%= render 'errors' %>
+
+<%= form_with(url: spread_slot_path(@spread, @slot), method: :patch) do |f| %>
+  <div class="form-group">
+    <%= f.label :name %> 
+    <%= f.text_field :name, value: @slot.name, placeholder: 'Name', class: 'form-control' %>
+  </div>
+  <div>
+    <%= f.submit "Save", name: 'save_and_finish', class: 'btn btn-secondary btn-small' %>
+  </div>
+<% end -%>

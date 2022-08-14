@@ -8,32 +8,57 @@ standard_deck.suits.create([
 ])
 standard_deck.suits.each do |suit|
   suit.cards.create([
-    {value: "Ace"},
-    {value: "Two"},
-    {value: "Three"},
-    {value: "Four"},
-    {value: "Five"},
-    {value: "Six"},
-    {value: "Seven"},
-    {value: "Eight"},
-    {value: "Nine"},
-    {value: "Ten"},
-    {value: "Page"},
-    {value: "Knight"},
-    {value: "Queen"},
-    {value: "King"},
+    {name: "Ace"},
+    {name: "Two"},
+    {name: "Three"},
+    {name: "Four"},
+    {name: "Five"},
+    {name: "Six"},
+    {name: "Seven"},
+    {name: "Eight"},
+    {name: "Nine"},
+    {name: "Ten"},
+    {name: "Page"},
+    {name: "Knight"},
+    {name: "Queen"},
+    {name: "King"},
   ])
 end
 
+majors = standard_deck.suits.create(name: "Majors")
+
+majors.cards.create([
+  {name: "The Fool"},
+  {name: "The Magician"},
+  {name: "The High Priestess"},
+  {name: "The Empress"},
+  {name: "The Emperor"},
+  {name: "The Hierophant"},
+  {name: "The Lovers"},
+  {name: "The Chariot"},
+  {name: "Strength"},
+  {name: "The Hermit"},
+  {name: "Wheel of Fortune"},
+  {name: "Justice"},
+  {name: "The Hanged Man"},
+  {name: "Death"},
+  {name: "Temperance"},
+  {name: "The Devil"},
+  {name: "The Tower"},
+  {name: "The Star"},
+  {name: "The Moon"},
+  {name: "The Sun"},
+  {name: "Judgement"},
+  {name: "The World"}
+])
+
 
 if Rails.env.development?
-  # Uncomment after users have been Devised
-
-  # user = User.create(username: "devin", email_address: "devin@example.com", password: "password")
-  # ech = user.spreads.create(name: "Energy/Challenge/Advice")
-  # ech.slots.create([
-  #   {name: "Energy"},
-  #   {name: "Challenge"},
-  #   {name: "Advice"}
-  # ])
+  user = User.create(username: "devin", email: "devin@example.com", password: "password")
+  ech = user.spreads.create(name: "Energy/Challenge/Advice")
+  ech.slots.create([
+    {name: "Energy"},
+    {name: "Challenge"},
+    {name: "Advice"}
+  ])
 end
