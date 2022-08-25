@@ -7,4 +7,10 @@ class User < ApplicationRecord
   has_and_belongs_to_many :decks
   has_many :spreads
   has_many :readings
+
+  after_create :add_standard_deck
+
+  def add_standard_deck
+    decks << Deck.first
+  end
 end

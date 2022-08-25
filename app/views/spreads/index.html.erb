@@ -1,5 +1,5 @@
 <div class="container">
-  <%= link_to 'Create New Spread', new_spread_path, class: 'btn btn-primary btn-small' %>
+  <%= link_to 'Create New Spread', new_spread_path, class: 'btn btn-primary btn-sm' %>
 
   <% if @spreads.empty? %>
     You have no existing spreads.
@@ -11,9 +11,9 @@
             <%= link_to spread.name, spread %> 
           </div>
           <div class="col">
-            <%= link_to "Create Reading", root_path, class: 'btn btn-primary btn-small' %>
-            <%= link_to "Edit", edit_spread_path(spread), class: 'btn btn-secondary btn-small' %>
-            <%= link_to "Delete", spread_path(spread), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete the '#{spread.name}' spread?"}, class: 'btn btn-danger btn-small' %>
+            <%= link_to "Enter Reading", new_spread_reading_path(spread), class: 'btn btn-primary btn-sm' %>
+            <%= link_to "Edit", edit_spread_path(spread), class: 'btn btn-secondary btn-sm' %>
+            <%= link_to "Delete", spread_path(spread), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete the '#{spread.name}' spread?"}, class: 'btn btn-danger btn-sm' %>
           </div>
         </li>
       <% end %>

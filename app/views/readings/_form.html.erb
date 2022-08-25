@@ -1,0 +1,19 @@
+<% if @reading.errors.count > 0 %>
+  <div class="alert alert-danger">
+    <ol class="list-group">
+      <% @reading.errors.full_messages.each do |error| %>
+        <li class="list-item"><%= error %></li>
+      <% end %>
+    </ol>
+  </div>
+<% end %>
+
+<%= form_with(model: @reading, url: [@spread, @reading]) do |f| %>
+  <% @spread.slots.each do |slot| %>
+    <div class="form-group">
+      <%= f.label slot.name %>
+      <%= f.select slot.name, @deck.cards.collect {|c| [c.full_name, c.id] }, {include_blank: true, required: true} %>
+    </div>
+  <% end %>
+  <%= f.submit "Create Reading", class: 'btn btn-primary' %>
+<% end -%>
